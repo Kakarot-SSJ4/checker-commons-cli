@@ -764,7 +764,7 @@ public class HelpFormatter
      * @param nextLineTabStop The position on the next line for the first tab.
      * @param text The text to be written to the PrintWriter
      */
-    public void printWrapped(final PrintWriter pw, final int width, final int nextLineTabStop, final String text)
+    public void printWrapped(final PrintWriter pw, final int width, final @NonNegative int nextLineTabStop, final String text)
     {
         final StringBuffer sb = new StringBuffer(text.length());
 
@@ -887,9 +887,9 @@ public class HelpFormatter
      *
      * @return the StringBuffer with the rendered Options contents.
      */
-    @SuppressWarnings("index") // pos will never be negative when invoked in substring 
+    @SuppressWarnings("index") // pos will never be negative when invoked as an index
     protected StringBuffer renderWrappedText(final StringBuffer sb, final int width, 
-                                             int nextLineTabStop, String text)
+                                             @NonNegative int nextLineTabStop, String text)
     {
         int pos = findWrapPos(text, width, 0);
 
@@ -899,7 +899,7 @@ public class HelpFormatter
 
             return sb;
         }
-        sb.append(rtrim(text.substring(0, pos))).append(getNewLine());
+        sb.append(rtrim(text.substring(0, pos))).append(getNewLine()); // pos ! = -1
 
         if (nextLineTabStop >= width)
         {
@@ -912,6 +912,7 @@ public class HelpFormatter
 
         while (true)
         {
+            text = padding + text.substring(pos).trim(); // pos != -1 as checker by the previous if
             pos = findWrapPos(text, width, 0);
 
             if (pos == -1)
@@ -921,14 +922,12 @@ public class HelpFormatter
                 return sb;
             }
 
-            text = padding + text.substring(pos).trim();
-
             if (text.length() > width && pos == nextLineTabStop - 1)
             {
                 pos = width;
             }
 
-            sb.append(rtrim(text.substring(0, pos))).append(getNewLine());
+            sb.append(rtrim(text.substring(0, pos))).append(getNewLine()); //pos!=-1 as checked by if
         }
     }
 
@@ -941,7 +940,7 @@ public class HelpFormatter
      * @param nextLineTabStop The position on the next line for the first tab.
      * @param text The text to be rendered.
      */
-    private Appendable renderWrappedTextBlock(final StringBuffer sb, final int width, final int nextLineTabStop, final String text)
+    private Appendable renderWrappedTextBlock(final StringBuffer sb, final int width, final @NonNegative int nextLineTabStop, final String text)
     {
         try
         {
