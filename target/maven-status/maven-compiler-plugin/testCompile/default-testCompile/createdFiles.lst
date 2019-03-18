@@ -1,0 +1,13 @@
+org/apache/commons/cli/DisablePartialMatchingTest.class
+org/apache/commons/cli/OptionTest.class
+org/apache/commons/cli/PosixParserTest.class
+org/apache/commons/cli/TypeHandlerTest.class
+org/apache/commons/cli/HelpFormatterTest$1.class
+org/apache/commons/cli/bug/BugCLI162Test.class
+org/apache/commons/cli/ParserTestCase.class
+org/apache/commons/cli/OptionTest$TestOption.class
+org/apache/commons/cli/TypeHandlerTest$Instantiable.class
+org/apache/commons/cli/HelpFormatterTest.class
+org/apache/commons/cli/UtilTest.class
+org/apache/commons/cli/TypeHandlerTest$NotInstantiable.class
+org/apache/commons/cli/OptionTest$DefaultOption.class

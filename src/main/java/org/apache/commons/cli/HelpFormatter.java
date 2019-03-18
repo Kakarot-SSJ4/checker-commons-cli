@@ -982,7 +982,6 @@ public class HelpFormatter
      * @return position on which the text must be wrapped or -1 if the wrap
      * position is at the end of the text
      */
-  
     protected int findWrapPos(final String text, final int width, final @NonNegative int startPos) // pos >= startPos in loop
     {
         // the line ends before the max wrap pos or a new line char found

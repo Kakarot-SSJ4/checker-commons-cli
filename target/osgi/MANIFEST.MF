@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1551870822581
+Build-Jdk: 1.8.0_201
+Built-By: kakarot
+Bundle-Description: Apache Commons CLI provides a simple API for present
+ ing, processing and validating a command line interface.
+Bundle-DocURL: http://commons.apache.org/proper/commons-cli/
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Commons CLI
+Bundle-SymbolicName: org.apache.commons.cli
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.5.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.apache.commons.cli;version="1.5.0.SNAPSHOT"
+Import-Package: org.checkerframework.checker.index.qual,org.checkerframe
+ work.common.value.qual,org.checkerframework.dataflow.qual
+Include-Resource: META-INF/LICENSE.txt=LICENSE.txt,META-INF/NOTICE.txt=N
+ OTICE.txt
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.5.0.201709291849

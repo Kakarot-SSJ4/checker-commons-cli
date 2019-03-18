@@ -577,6 +577,7 @@ public class DefaultParser implements CommandLineParser
             {
                 // look for a long prefix (-Xmx512m)
                 final String opt = getLongPrefix(t);
+                
                 if (opt != null && options.getOption(opt).acceptsArg())
                 {
                     handleOption(options.getOption(opt));
@@ -626,8 +627,7 @@ public class DefaultParser implements CommandLineParser
             else if (isJavaProperty(opt))
             {
                 // -SV1=V2 (-Dkey=value)
-                handleOption(options.getOption(opt.substring(0, 1))); /* opt is not null(because isJavaProperty(opt) is true), hence 
-                    substring(0,1) is valid
+                handleOption(options.getOption(opt.substring(0, 1))); /*isJavaProperty(opt) ensures opt.length>=1, it returns false otherwise
                     */
                 currentOption.addValueForProcessing(opt.substring(1));/* opt has greater than or equal to 2 characters because isJavaProperty(opt)
                     is true, which checks for number of arguments(Option.getArgs()) that can be attained obtained from opt, and is true only when
